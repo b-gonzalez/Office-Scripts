@@ -132,7 +132,7 @@ function main(workbook: ExcelScript.Workbook) {
 }
 
 //Example 4: Using sheets to pull specific columns data from the underlying tables that they contain.
-//All column names in this example are expected to be unique
+//NOTE: All column names in this example are expected to be unique
 
 function main(workbook: ExcelScript.Workbook) {
 
