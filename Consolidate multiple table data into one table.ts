@@ -2,7 +2,7 @@
 
 //Here are a few additional examples
 
-//Iterating throuth the tables collection, iterating through the values of certain columns in all of the tables,
+//Example 1: Iterating throuth the tables collection, iterating through the values of certain columns in all of the tables,
 //and merging those table values into a final column in the final table
 
 function main(workbook: ExcelScript.Workbook) {
@@ -43,7 +43,7 @@ function main(workbook: ExcelScript.Workbook) {
   combinedSheet.addTable(combinedTableAddress,true)
 }
 
-//Iterating through the tables collection, getting all columns from the table, and combining them into a final sheet
+//Example 2: Iterating through the tables collection, getting all columns from the table, and combining them into a final sheet
 
 //NOTE: All columns in this example have the exact same column names
 
@@ -85,7 +85,7 @@ function main(workbook: ExcelScript.Workbook) {
   combinedSheet.addTable(combinedTableAddress, true)
 }
 
-//Iterating through the tables collection and combining columns from the tables.
+//Example 3: Iterating through the tables collection and combining columns from the tables.
 
 //NOTE: Tables in this example DO NOT all need to have the same structure
 
@@ -131,7 +131,7 @@ function main(workbook: ExcelScript.Workbook) {
   combinedSheet.addTable(combinedTableAddress, true)
 }
 
-//Using sheets to pull specific columns data from the underlying tables that they contain.
+//Example 4: Using sheets to pull specific columns data from the underlying tables that they contain.
 //All column names in this example are expected to be unique
 
 function main(workbook: ExcelScript.Workbook) {
