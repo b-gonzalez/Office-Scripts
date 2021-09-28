@@ -43,10 +43,96 @@ function main(workbook: ExcelScript.Workbook) {
   combinedSheet.addTable(combinedTableAddress,true)
 }
 
+//Iterating through the tables collection, getting all columns from the table, and combining them into a final sheet
+
+//NOTE: All columns in this example have the exact same column names
+
+function main(workbook: ExcelScript.Workbook) {
+
+  let columnNames: string[] = ["ColA", "ColB", "ColC"]
+
+  const columnNamesAndCellValues = {
+    "ColA": [],
+    "ColB": [],
+    "ColC": []
+  }
+
+  let tables: ExcelScript.Table[] = workbook.getTables()
+
+  tables.forEach(tbl => {
+    let tableColumns: ExcelScript.TableColumn[] = tbl.getColumns()
+    tableColumns.forEach(column=>{
+      column.getRangeBetweenHeaderAndTotal().getValues().forEach(value => {
+        columnNamesAndCellValues[column.getName()].push(value)
+      })
+    })
+  })
+
+  let combinedSheet: ExcelScript.Worksheet = workbook.getWorksheet("Combined")
+
+  combinedSheet.activate()
+
+  let headerRange: ExcelScript.Range = combinedSheet.getRangeByIndexes(0, 0, 1, columnNames.length)
+
+  headerRange.setValues([columnNames])
+
+  columnNames.forEach((column, index) => {
+    combinedSheet.getRangeByIndexes(1, index, columnNamesAndCellValues[column].length, 1).setValues(columnNamesAndCellValues[column])
+  })
+
+  let combinedTableAddress: string = combinedSheet.getRange("A1").getSurroundingRegion().getAddress()
+
+  combinedSheet.addTable(combinedTableAddress, true)
+}
+
+//Iterating through the tables collection and combining columns from the tables.
+
+//NOTE: Tables in this example DO NOT all need to have the same structure
+
+function main(workbook: ExcelScript.Workbook) {
+
+  let columnNames: string[] = ["ColA", "ColB", "ColC"]
+
+  const columnNamesAndCellValues = {
+    "ColA": [],
+    "ColB": [],
+    "ColC": []
+  }
+
+  let tables: ExcelScript.Table[] = workbook.getTables()
+
+  tables.forEach(tbl => {
+    let tableColumns: ExcelScript.TableColumn[] = tbl.getColumns().map(column=>{
+      if (columnNames.includes(column.getName())){
+        return column
+      }
+  }).filter(column=>column !== undefined)
+    tableColumns.forEach(column=>{
+      column.getRangeBetweenHeaderAndTotal().getValues().forEach(value => {
+        columnNamesAndCellValues[column.getName()].push(value)
+      })
+    })
+  })
+
+  let combinedSheet: ExcelScript.Worksheet = workbook.getWorksheet("Combined")
+
+  combinedSheet.activate()
+
+  let headerRange: ExcelScript.Range = combinedSheet.getRangeByIndexes(0, 0, 1, columnNames.length)
+
+  headerRange.setValues([columnNames])
+
+  columnNames.forEach((column, index) => {
+    combinedSheet.getRangeByIndexes(1, index, columnNamesAndCellValues[column].length, 1).setValues(columnNamesAndCellValues[column])
+  })
+
+  let combinedTableAddress: string = combinedSheet.getRange("A1").getSurroundingRegion().getAddress()
+
+  combinedSheet.addTable(combinedTableAddress, true)
+}
 
 //Using sheets to pull specific columns data from the underlying tables that they contain.
 //All column names in this example are expected to be unique
-
 
 function main(workbook: ExcelScript.Workbook) {
 
