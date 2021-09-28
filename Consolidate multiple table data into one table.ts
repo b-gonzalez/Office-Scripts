@@ -2,7 +2,7 @@
 
 //Here are a few additional examples
 
-//Iterating throuth the tables collection, iterating through the values of certain columns in all of the tablse,
+//Iterating throuth the tables collection, iterating through the values of certain columns in all of the tables,
 //and merging those table values into a final column in the final table
 
 function main(workbook: ExcelScript.Workbook) {
