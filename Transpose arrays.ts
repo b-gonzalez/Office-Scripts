@@ -9,6 +9,7 @@ function main(workbook: ExcelScript.Workbook)
 {
   let arr = [1,2,3,4,5]
   console.log(arrayForSetValues(arr,setValueType.toColumns))
+  console.log(arrayForSetValues(arr, setValueType.toRows))
 }
 
 function arrayForSetValues(arr: (string | number | boolean)[], setType: setValueType): (string | number | boolean)[][]{
