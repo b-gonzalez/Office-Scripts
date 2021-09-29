@@ -45,7 +45,7 @@ function main(workbook: ExcelScript.Workbook) {
 
 //Example 2: Iterating through the tables collection, getting all columns from the table, and combining them into a final sheet
 
-//NOTE: All columns in this example have the exact same column names
+//NOTE: All columns in this example have the exact same column names and same number of columns
 
 function main(workbook: ExcelScript.Workbook) {
 
