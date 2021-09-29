@@ -8,10 +8,10 @@
 function main(workbook: ExcelScript.Workbook)
 {
   let arr = [1,2,3,4,5]
-  console.log(arrayForSetValues(arr,setValueType.toRows))
+  console.log(arrayForSetValues(arr,setValueType.toColumns))
 }
 
-function arrayForSetValues(arr: (string|number|boolean)[],setType: setValueType){
+function arrayForSetValues(arr: (string | number | boolean)[], setType: setValueType): (string | number | boolean)[][]{
   let tempArr: (string | number | boolean)[][] = []
   if (setType === setValueType.toRows){ 
     arr.forEach(value => {
@@ -41,20 +41,21 @@ function main(workbook:ExcelScript.Workbook) {
   let rang = ws.getRange("E1:G1")
   //let rang2 = ws.getRange("E1:G1")
   let rang2 = ws.getRange("E1:E3")
+  console.log(rang.getValues())
   let vals : (string|number|boolean)[][] = transposeValues(rang.getValues())
   rang2.setValues(vals)
 }
 
-function transposeValues(transposeValues: (string | number | boolean)[][]){
+function transposeValues(inputValues: (string | number | boolean)[][]): (string | number | boolean)[][] {
   let tempArr: (string | number | boolean)[][] = []
-  if (transposeValues.length === 1){
-    let arr: (string | number | boolean)[] = transposeValues[0]
+  if (inputValues.length === 1){
+    let arr: (string | number | boolean)[] = inputValues[0]
     arr.forEach(value=>{
       tempArr.push([value])
     })
   } else {
     let elseArr: (string|number|boolean)[] = []
-    transposeValues.forEach((value,index)=>{
+    inputValues.forEach((value,index)=>{
       elseArr.push(value[0])
     })
     tempArr.push(elseArr)
