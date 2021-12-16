@@ -1,9 +1,10 @@
-//Office Script to delete rows from a table.
-//Requires updating of sheetName, tableName,
-//columnName, and columnValue variables with
-//the values required in the workbook.
-//
-//Code is in reponse to this question on SO:
+//Office Script to delete rows from a table
+//based on the specific value from a column
+//in the table. It Requires updating of 
+//sheetName, tableName, columnName, and 
+//columnValue variables with the values 
+//required in the workbook. Code is in 
+//reponse to this question on SO:
 //https://stackoverflow.com/questions/70343448/how-to-delete-special-cells
 
 function main(workbook: ExcelScript.Workbook) {
