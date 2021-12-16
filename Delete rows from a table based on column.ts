@@ -7,7 +7,6 @@
 //https://stackoverflow.com/questions/70343448/how-to-delete-special-cells
 
 function main(workbook: ExcelScript.Workbook) {
-
   let sheetName: string = "Sheet3";
   let tableName: string = "Table2";
   let columnName: string = "Col19";
