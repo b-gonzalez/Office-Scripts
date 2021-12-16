@@ -1,6 +1,6 @@
 //Office Script to delete rows from a table
 //based on the specific value from a column
-//in the table. It Requires updating of 
+//in the table. It requires updating of 
 //sheetName, tableName, columnName, and 
 //columnValue variables with the values 
 //required in the workbook. Code is in 
