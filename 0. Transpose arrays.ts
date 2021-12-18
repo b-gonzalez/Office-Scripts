@@ -38,9 +38,7 @@ enum setValueType{
 
 function main(workbook:ExcelScript.Workbook) {
   let ws = workbook.getActiveWorksheet()
-  //let rang = ws.getRange("E1:E3")
   let rang = ws.getRange("E1:G1")
-  //let rang2 = ws.getRange("E1:G1")
   let rang2 = ws.getRange("E1:E3")
   console.log(rang.getValues())
   let vals : (string|number|boolean)[][] = transposeValues(rang.getValues())
