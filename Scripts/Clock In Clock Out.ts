@@ -64,10 +64,5 @@ function getDurationMessage(delta : number){
     minutes > 1 ? durationString += " minutes " : durationString += " minute "
   }
 
-/*delta -= minutes * 60;
-
-// what's left is seconds
-let seconds = delta % 60;  // in theory the modulus is not required*/
-
   return durationString
 }
