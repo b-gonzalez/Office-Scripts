@@ -32,22 +32,19 @@ function main(workbook:ExcelScript.Workbook){
 }
 
 function getDurationMessage(delta : number){
-//adapted from here: https://stackoverflow.com/questions/13903897/javascript-return-number-of-days-hours-minutes-seconds-between-two-dates
-    // get total seconds between the times
+  //adapted from here: 
+  //https://stackoverflow.com/questions/13903897/javascript-return-number-of-days-hours-minutes-seconds-between-two-dates
 
   delta = delta / 1000
 
   let durationString = ""
 
-  // calculate (and subtract) whole days
   let days = Math.floor(delta / 86400)
   delta -= days * 86400;
 
-  // calculate (and subtract) whole hours
   let hours = Math.floor(delta / 3600) % 24;
   delta -= hours * 3600;
 
-  // calculate (and subtract) whole minutes
   let minutes = Math.floor(delta / 60) % 60;
 
   if (days >= 1) {
@@ -64,7 +61,8 @@ function getDurationMessage(delta : number){
   
   if (hours >= 1) {
     durationString += hours
-    durationString += (hours > 1 ? " hours" : " hour") + " and "
+    durationString += (hours > 1 ? " hours" : " hour")
+    if (minutes>=1) durationString += " and "
   }
 
   if (minutes >= 1) {
