@@ -73,7 +73,7 @@ function getDurationMessage(delta : number){
 
   if (minutes >= 1) {
     durationString += minutes
-    durationString += (minutes > 1 ? " minutes " : " minute ")
+    durationString += (minutes > 1 ? " minutes" : " minute")
   }
 
   return durationString
