@@ -32,8 +32,10 @@ function main(workbook:ExcelScript.Workbook){
 }
 
 function getDurationMessage(delta : number){
-//adapted from here: https://stackoverflow.com/questions/13903897/javascript-return-number-of-days-hours-minutes-seconds-between-two-dates
-    // get total seconds between the times
+  //Code adapted from here: 
+  //https://stackoverflow.com/questions/13903897/javascript-return-number-of-days-hours-minutes-seconds-between-two-dates
+  
+  // get total seconds between the times
 
   delta = delta / 1000
 
