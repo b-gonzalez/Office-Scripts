@@ -53,6 +53,7 @@ function getDurationMessage(delta : number){
   if (days >= 1) {
     durationString += days
     durationString += (days > 1 ? " days" : " day")
+
     if (hours >= 1 && minutes >=1){
       durationString += ", "
     }
@@ -63,12 +64,7 @@ function getDurationMessage(delta : number){
   
   if (hours >= 1) {
     durationString += hours
-    durationString += (hours > 1 ? " hours" : " hour")
-    if (days >=1 && minutes >= 1){
-      durationString += ", and "
-    } else if (minutes >=1) {
-      durationString += " and "
-    }
+    durationString += (hours > 1 ? " hours" : " hour") + " and "
   }
 
   if (minutes >= 1) {
