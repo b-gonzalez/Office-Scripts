@@ -44,7 +44,7 @@ function getDurationMessage(delta : number){
 
   if (days >= 1) {
     durationString += days
-    days > 1 ? durationString += " days " : durationString += " day "
+    durationString += (days > 1 ? " days " : " day ")
   }
 
   delta -= days * 86400;
@@ -53,7 +53,7 @@ function getDurationMessage(delta : number){
   let hours = Math.floor(delta / 3600) % 24;
   if (hours >= 1) {
     durationString += hours
-    hours > 1 ? durationString += " hours " : durationString += " hour "
+    durationString += (hours > 1 ? " hours " : " hour ")
   }
   delta -= hours * 3600;
 
@@ -61,7 +61,7 @@ function getDurationMessage(delta : number){
   let minutes = Math.floor(delta / 60) % 60;
   if (minutes >= 1) {
     durationString += minutes
-    minutes > 1 ? durationString += " minutes " : durationString += " minute "
+    durationString += (minutes > 1 ? " minutes " : " minute ")
   }
 
   return durationString
