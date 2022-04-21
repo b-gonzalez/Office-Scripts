@@ -7,7 +7,9 @@
 
 function main(workbook: ExcelScript.Workbook) {
 	let ws: ExcelScript.Worksheet = workbook.getWorksheet("Sheet1")
-	let map: Map<string, number> = getCalendarTotals(ws, "A1", "B1");
+	let criteriaStart: string = "A1"
+	let sumStart: string = "B1"
+	let map: Map<string, number> = getColumnTotals(ws, criteriaStart, sumStart);
 	console.log(map.get('A'));
 	console.log(map.get('B'));
 	console.log(map.get('C'));
@@ -15,7 +17,7 @@ function main(workbook: ExcelScript.Workbook) {
 	//map.forEach(e => console.log(e))
 }
 
-function getCalendarTotals(worksheet: ExcelScript.Worksheet, criteriaStartAddress: string, sumStartAddress: string): Map<string, number> {
+function getColumnTotals(worksheet: ExcelScript.Worksheet, criteriaStartAddress: string, sumStartAddress: string): Map<string, number> {
 	let criteriaRange: ExcelScript.Range = worksheet.getRange(criteriaStartAddress).getExtendedRange(ExcelScript.KeyboardDirection.down);
 	let criteriaVals: string[][] = criteriaRange.getValues() as string[][];
 	let sumRange: ExcelScript.Range = worksheet.getRange(sumStartAddress).getExtendedRange(ExcelScript.KeyboardDirection.down);
